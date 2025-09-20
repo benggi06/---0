@@ -38,7 +38,7 @@ class WordManager:
     def get_available_topics(self):
         try:
             files = [f.split('.')[0] for f in os.listdir(self.word_lists_path) if f.endswith('.txt')]
-            return files
+            return sorted(files)
         except FileNotFoundError:
             return []
 
@@ -46,39 +46,59 @@ class WordManager:
         words = self.get_word_list(f"{topic}.txt")
         return random.choice(words) if words else None
 
+    # [수정] 글자 수로 난이도를 구분하는 로직으로 변경
     def get_word_by_level(self, level):
-        level_topic_map = {
-            '초급': 'animals',
-            '중급': 'foods',
-            '고급': 'professions'
+        """난이도(글자 수)에 맞는 단어를 랜덤하게 반환합니다."""
+        level_lengths = {
+            '초급': (3, 5),
+            '중급': (6, 8),
+            '고급': (9, 99) # 9글자 이상
         }
-        topic = level_topic_map.get(level)
-        if topic:
-            return self.get_word_by_topic(topic)
-        return self.get_random_word()
+        
+        if level not in level_lengths:
+            return None
 
-    def get_random_word(self):
+        min_len, max_len = level_lengths[level]
+        
+        all_words = self._get_all_words()
+        if not all_words:
+            return None
+            
+        # 조건에 맞는 단어들만 필터링
+        eligible_words = [word for word in all_words if min_len <= len(word) <= max_len]
+        
+        return random.choice(eligible_words) if eligible_words else None
+
+    def _get_all_words(self):
+        """모든 주제의 단어를 하나의 리스트로 합쳐서 반환합니다."""
         all_words = []
         topics = self.get_available_topics()
         if not topics:
-            return None
+            return []
         for topic in topics:
             all_words.extend(self.get_word_list(f"{topic}.txt"))
+        return list(set(all_words)) # 중복 제거
+
+    def get_random_word(self):
+        """모든 단어 목록에서 랜덤하게 단어를 하나 선택합니다."""
+        all_words = self._get_all_words()
         return random.choice(all_words) if all_words else None
 
     def manage_words(self):
         while True:
             print("\n[📖 단어 관리]")
-            print("1. 단어 추가하기")
-            print("2. 단어 삭제하기")
+            print("1. 단어 추가하기 (뜻, 예문 포함)")
+            print("2. 단어 삭제하기 🗑️")
             print("3. 전체 단어 목록 보기")
             print("4. 돌아가기")
             choice = input(">> 선택: ")
 
             if choice == '1':
-                topic = input("추가할 단어의 주제(파일 이름)를 입력하세요 (예: animals): ").lower()
+                topic = input("추가할 단어의 주제(파일 이름)를 입력하세요: ").lower()
                 word = input("추가할 단어를 입력하세요: ").lower()
-                self.add_word(topic, word)
+                meaning = input(f"'{word}'의 뜻을 입력하세요: ")
+                example = input(f"'{word}'이(가) 사용된 예문을 입력하세요: ")
+                self.add_word(topic, word, meaning, example)
             elif choice == '2':
                 topic = input("삭제할 단어의 주제(파일 이름)를 입력하세요: ").lower()
                 word = input("삭제할 단어를 입력하세요: ").lower()
@@ -90,10 +110,11 @@ class WordManager:
             else:
                 print("⚠️ 잘못된 입력입니다.")
 
-    def add_word(self, topic, word):
+    def add_word(self, topic, word, meaning, example):
         if not word.isalpha():
             print("⚠️ 알파벳으로만 구성된 단어를 입력해주세요.")
             return
+
         filepath = os.path.join(self.word_lists_path, f"{topic}.txt")
         existing_words = self.get_word_list(f"{topic}.txt")
         if word in existing_words:
@@ -103,9 +124,22 @@ class WordManager:
         with open(filepath, 'a', encoding='utf-8') as f:
             f.write(f"\n{word}")
         print(f"✅ 주제 '{topic}'에 단어 '{word}'이(가) 추가되었습니다.")
+        
+        try:
+            with open(self.word_meaning_path, 'r', encoding='utf-8') as f:
+                meanings_data = json.load(f)
+        except (FileNotFoundError, json.JSONDecodeError):
+            meanings_data = {}
+        
+        meanings_data[word] = {"meaning": meaning, "example": example}
+        
+        with open(self.word_meaning_path, 'w', encoding='utf-8') as f:
+            json.dump(meanings_data, f, ensure_ascii=False, indent=4)
+        print(f"✅ '{word}'의 뜻과 예문 정보가 저장되었습니다.")
 
     def delete_word(self, topic, word_to_delete):
         filepath = os.path.join(self.word_lists_path, f"{topic}.txt")
+        deleted_from_txt = False
         try:
             with open(filepath, 'r', encoding='utf-8') as f:
                 words = [line.strip() for line in f if line.strip()]
@@ -116,10 +150,25 @@ class WordManager:
                     for word in words:
                         f.write(f"{word}\n")
                 print(f"✅ 주제 '{topic}'에서 단어 '{word_to_delete}'을(를) 삭제했습니다.")
+                deleted_from_txt = True
             else:
                 print(f"⚠️ 주제 '{topic}'에 '{word_to_delete}' 단어가 존재하지 않습니다.")
+        
         except FileNotFoundError:
             print(f"⚠️ '{topic}'이라는 주제(파일)를 찾을 수 없습니다.")
+
+        if deleted_from_txt:
+            try:
+                with open(self.word_meaning_path, 'r', encoding='utf-8') as f:
+                    meanings_data = json.load(f)
+                
+                if word_to_delete in meanings_data:
+                    del meanings_data[word_to_delete]
+                    with open(self.word_meaning_path, 'w', encoding='utf-8') as f:
+                        json.dump(meanings_data, f, ensure_ascii=False, indent=4)
+                    print(f"✅ '{word_to_delete}'의 뜻과 예문 정보가 삭제되었습니다.")
+            except (FileNotFoundError, json.JSONDecodeError):
+                pass
 
     def view_all_words(self):
         topics = self.get_available_topics()
@@ -133,7 +182,6 @@ class WordManager:
                 print(f"\n--- 주제: {topic} ---")
                 print(', '.join(words))
 
-    # --- 학습 효과 증진 기능 ---
     def show_word_meaning(self, word):
         try:
             with open(self.word_meaning_path, 'r', encoding='utf-8') as f:
@@ -145,27 +193,24 @@ class WordManager:
                 print(f"예문: {info['example']}")
             else:
                 print(f"⚠️ '{word}' 단어의 정보를 찾을 수 없습니다.")
-        except FileNotFoundError:
-            print("⚠️ 단어 정보 파일이 없습니다.")
+        except (FileNotFoundError, json.JSONDecodeError):
+            print("⚠️ 단어 정보 파일이 없거나 손상되었습니다.")
 
-    # 👇👇👇 이 함수의 들여쓰기가 올바른지 확인하세요! 👇👇👇
     def add_to_my_wordbook(self, word):
-        """틀린 단어를 '나만의 단어장'에 추가합니다."""
         with open(self.my_wordbook_path, 'r+', encoding='utf-8') as f:
             try:
                 wordbook = json.load(f)
-            except json.JSONDecodeError: # 파일이 비어있을 경우 예외 처리
+            except json.JSONDecodeError:
                 wordbook = []
             
             if word not in wordbook:
                 wordbook.append(word)
                 f.seek(0)
-                f.truncate() # 파일 내용을 모두 지움
+                f.truncate()
                 json.dump(wordbook, f, ensure_ascii=False, indent=4)
                 print(f"✔️ '{word}'을(를) 나만의 단어장에 추가했습니다.")
 
     def manage_my_wordbook(self):
-        """나만의 단어장을 보고 관리하는 메뉴입니다."""
         try:
             with open(self.my_wordbook_path, 'r', encoding='utf-8') as f:
                 wordbook = json.load(f)
@@ -175,7 +220,7 @@ class WordManager:
                 return
 
             print("\n[📚 나만의 단어장]")
-            for i, word in enumerate(wordbook, 1):
+            for i, word in enumerate(sorted(wordbook), 1):
                 print(f"{i}. {word}")
             
             while True:
@@ -184,8 +229,8 @@ class WordManager:
                     break
                 try:
                     index = int(choice) - 1
-                    if 0 <= index < len(wordbook):
-                        self.show_word_meaning(wordbook[index])
+                    if 0 <= index < len(sorted(wordbook)):
+                        self.show_word_meaning(sorted(wordbook)[index])
                     else:
                         print("⚠️ 잘못된 번호입니다.")
                 except ValueError:

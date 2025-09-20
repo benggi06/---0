@@ -1,52 +1,67 @@
 {
-    "total_games": 9,
-    "wins": 5,
-    "best_time": 20.54,
+    "total_games": 12,
+    "wins": 8,
+    "best_time": 3.94,
     "history": [
         {
-            "word": "musician",
-            "result": "\ud328\ubc30",
-            "time": "2025-09-20 23:03:18"
+            "word": "teacher",
+            "result": "패배",
+            "time": "2025-09-21 00:03:33"
         },
         {
-            "word": "designer",
-            "result": "\uc2b9\ub9ac",
-            "time": "2025-09-20 23:03:09"
+            "word": "cheese",
+            "result": "승리",
+            "time": "2025-09-21 00:03:08"
         },
         {
-            "word": "curry",
-            "result": "\uc2b9\ub9ac",
-            "time": "2025-09-20 23:02:33"
+            "word": "salad",
+            "result": "승리",
+            "time": "2025-09-21 00:02:55"
         },
         {
-            "word": "orange",
-            "result": "\ud328\ubc30",
-            "time": "2025-09-20 23:01:45"
+            "word": "frog",
+            "result": "승리",
+            "time": "2025-09-21 00:02:42"
         },
         {
-            "word": "firefighter",
-            "result": "\ud328\ubc30",
-            "time": "2025-09-20 23:00:56"
+            "word": "salad",
+            "result": "승리",
+            "time": "2025-09-21 00:02:35"
         },
         {
-            "word": "strawberry",
-            "result": "\uc2b9\ub9ac",
-            "time": "2025-09-20 23:00:29"
+            "word": "horse",
+            "result": "승리",
+            "time": "2025-09-21 00:02:12"
         },
         {
-            "word": "bird",
-            "result": "\ud328\ubc30",
-            "time": "2025-09-20 22:35:36"
+            "word": "tiger",
+            "result": "승리",
+            "time": "2025-09-21 00:01:53"
         },
         {
-            "word": "chef",
-            "result": "\uc2b9\ub9ac",
-            "time": "2025-09-20 22:34:56"
+            "word": "goat",
+            "result": "패배",
+            "time": "2025-09-21 00:01:23"
         },
         {
-            "word": "leejupsu",
-            "result": "\uc2b9\ub9ac",
-            "time": "2025-09-20 22:20:50"
+            "word": "apple",
+            "result": "패배",
+            "time": "2025-09-20 23:58:17"
+        },
+        {
+            "word": "pig",
+            "result": "패배",
+            "time": "2025-09-20 23:58:08"
+        },
+        {
+            "word": "deer",
+            "result": "승리",
+            "time": "2025-09-20 23:57:57"
+        },
+        {
+            "word": "deer",
+            "result": "승리",
+            "time": "2025-09-20 23:57:47"
         }
     ]
 }

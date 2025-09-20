@@ -12,6 +12,14 @@ class Game:
         self.guessed_letters = []
         self.attempts_left = 0
 
+    def _format_time(self, seconds):
+        """초를 '분 초' 형태로 변환합니다."""
+        if seconds < 60:
+            return f"{seconds:.2f}초"
+        minutes = int(seconds // 60)
+        remaining_seconds = int(seconds % 60)
+        return f"{minutes}분 {remaining_seconds}초"
+
     def _play(self, challenge_mode=False, time_limit=60):
         """핵심 게임 플레이 로직을 수행합니다."""
         if not self.target_word:
@@ -39,11 +47,9 @@ class Game:
             print(f"남은 시도: {self.attempts_left} | 추측한 알파벳: {', '.join(sorted(self.guessed_letters))}")
             guess = input(">> 알파벳을 추측하거나 '힌트'를 입력하세요: ").lower()
 
-            # 힌트 기능
             if guess == '힌트':
                 if self.hint_count > 0:
                     self.hint_count -= 1
-                    # 아직 안 나온 글자 중 하나를 공개
                     unrevealed_letters = [i for i, char in enumerate(self.target_word) if display_word[i] == '_']
                     if unrevealed_letters:
                         hint_index = random.choice(unrevealed_letters)
@@ -55,7 +61,6 @@ class Game:
                     print("⚠️ 더 이상 힌트를 사용할 수 없습니다.")
                 continue
 
-            # 입력 유효성 검사
             if len(guess) != 1 or not guess.isalpha():
                 print("⚠️ 알파벳 한 글자만 입력해주세요.")
                 continue
@@ -74,11 +79,11 @@ class Game:
                 print(f"👎 아쉽네요! '{guess}'는 단어에 없습니다.")
                 self.attempts_left -= 1
 
-        # 게임 결과
         if '_' not in display_word:
             elapsed_time = time.time() - start_time
+            formatted_time = self._format_time(elapsed_time)
             print(f"\n🎉 축하합니다! 정답 '{self.target_word}'을(를) 맞추셨습니다!")
-            print(f"걸린 시간: {elapsed_time:.2f}초")
+            print(f"걸린 시간: {formatted_time}")
             self.game_data.record_game(self.target_word, True, elapsed_time)
         else:
             print(f"\nGAME OVER. 정답은 '{self.target_word}'였습니다.")
@@ -86,7 +91,6 @@ class Game:
             self.word_manager.add_to_my_wordbook(self.target_word)
 
     def start_game_by_level(self, level):
-        """난이도별 게임 시작"""
         level_map = {'1': '초급', '2': '중급', '3': '고급'}
         if level in level_map:
             self.target_word = self.word_manager.get_word_by_level(level_map[level])
@@ -94,20 +98,47 @@ class Game:
         else:
             print("⚠️ 잘못된 난이도 선택입니다.")
 
-    def start_game_by_topic(self, topic):
-        """주제별 게임 시작"""
-        self.target_word = self.word_manager.get_word_by_topic(topic)
-        self._play()
+    def start_game_by_topic(self, topic_choice):
+        topics = self.word_manager.get_available_topics()
+        try:
+            index = int(topic_choice) - 1
+            if 0 <= index < len(topics):
+                chosen_topic = topics[index]
+                self.target_word = self.word_manager.get_word_by_topic(chosen_topic)
+                self._play()
+            else:
+                print("⚠️ 잘못된 번호입니다.")
+        except (ValueError, IndexError):
+            print("⚠️ 잘못된 입력입니다. 목록에 있는 번호를 입력해주세요.")
 
-    def start_hint_mode(self):
-        """힌트 모드 게임 시작 (글자 일부 미리 채우기)"""
-        self.target_word = self.word_manager.get_random_word()
+
+    def start_hint_mode(self, ui):
+        """[수정] 힌트 모드 시작 전 주제를 선택받습니다."""
+        topics = self.word_manager.get_available_topics()
+        if not topics:
+            print("\n⚠️ 플레이할 단어가 없습니다. 단어를 먼저 추가해주세요.")
+            return
+
+        ui.display_topic_menu(topics)
+        topic_choice = input(">> 힌트 모드를 플레이할 주제를 선택하세요: ")
+
+        try:
+            index = int(topic_choice) - 1
+            if 0 <= index < len(topics):
+                chosen_topic = topics[index]
+                self.target_word = self.word_manager.get_word_by_topic(chosen_topic)
+            else:
+                print("⚠️ 잘못된 번호입니다.")
+                return
+        except (ValueError, IndexError):
+            print("⚠️ 잘못된 입력입니다. 목록에 있는 번호를 입력해주세요.")
+            return
+
         if not self.target_word:
-            print("\n⚠️ 플레이할 단어가 없습니다.")
+            print("\n⚠️ 단어를 불러오지 못했습니다.")
             return
 
         display_word = ['_'] * len(self.target_word)
-        # 단어 길이의 30% 만큼 힌트 제공
         hint_count = len(self.target_word) // 3
         hint_indices = random.sample(range(len(self.target_word)), hint_count)
 
@@ -115,27 +146,22 @@ class Game:
             display_word[i] = self.target_word[i]
 
         print("✨ [힌트 모드] 일부 글자가 미리 채워진 상태로 시작합니다!")
-        # 기존 _play 로직을 수정하여 초기 상태를 전달하며 실행
-        # 이 부분은 _play 함수를 수정하여 초기 display_word를 받을 수 있도록 확장해야 함
         self._play_with_initial_state(display_word)
 
 
     def start_challenge_mode(self):
-        """챌린지 모드 게임 시작 (시간 제한)"""
         self.target_word = self.word_manager.get_random_word()
         print("⏱️ [챌린지 모드] 60초 안에 단어를 맞춰보세요!")
         self._play(challenge_mode=True, time_limit=60)
 
     def _play_with_initial_state(self, initial_display):
-        """특정 상태에서 게임을 시작하는 내부 함수 (힌트 모드용)"""
-        # _play 로직과 유사하지만, display_word 초기값을 받아옴
         if not self.target_word:
-            print("\n⚠️ 플레이할 단어가 없습니다.")
             return
 
         self.guessed_letters = [c for c in initial_display if c != '_']
         self.attempts_left = self.max_attempts
         display_word = initial_display
+        start_time = time.time()
 
         print(f"\n✨ 새로운 게임을 시작합니다! 단어의 길이는 {len(self.target_word)}입니다.")
 
@@ -163,8 +189,11 @@ class Game:
                 self.attempts_left -= 1
         
         if '_' not in display_word:
+            elapsed_time = time.time() - start_time
+            formatted_time = self._format_time(elapsed_time)
             print(f"\n🎉 축하합니다! 정답 '{self.target_word}'을(를) 맞추셨습니다!")
-            self.game_data.record_game(self.target_word, True)
+            print(f"걸린 시간: {formatted_time}")
+            self.game_data.record_game(self.target_word, True, elapsed_time)
         else:
             print(f"\nGAME OVER. 정답은 '{self.target_word}'였습니다.")
             self.game_data.record_game(self.target_word, False)

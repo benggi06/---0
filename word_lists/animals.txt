@@ -8,7 +8,6 @@ horse
 sheep
 goat
 pig
-cat
 dog
 bird
 fish
