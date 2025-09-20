@@ -1,0 +1,14 @@
+{
+    "apple": {
+        "meaning": "사과",
+        "example": "An apple a day keeps the doctor away."
+    },
+    "banana": {
+        "meaning": "바나나",
+        "example": "Monkeys love to eat bananas."
+    },
+    "developer": {
+        "meaning": "개발자",
+        "example": "A software developer writes code."
+    }
+}

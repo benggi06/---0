@@ -1,0 +1,52 @@
+{
+    "total_games": 9,
+    "wins": 5,
+    "best_time": 20.54,
+    "history": [
+        {
+            "word": "musician",
+            "result": "\ud328\ubc30",
+            "time": "2025-09-20 23:03:18"
+        },
+        {
+            "word": "designer",
+            "result": "\uc2b9\ub9ac",
+            "time": "2025-09-20 23:03:09"
+        },
+        {
+            "word": "curry",
+            "result": "\uc2b9\ub9ac",
+            "time": "2025-09-20 23:02:33"
+        },
+        {
+            "word": "orange",
+            "result": "\ud328\ubc30",
+            "time": "2025-09-20 23:01:45"
+        },
+        {
+            "word": "firefighter",
+            "result": "\ud328\ubc30",
+            "time": "2025-09-20 23:00:56"
+        },
+        {
+            "word": "strawberry",
+            "result": "\uc2b9\ub9ac",
+            "time": "2025-09-20 23:00:29"
+        },
+        {
+            "word": "bird",
+            "result": "\ud328\ubc30",
+            "time": "2025-09-20 22:35:36"
+        },
+        {
+            "word": "chef",
+            "result": "\uc2b9\ub9ac",
+            "time": "2025-09-20 22:34:56"
+        },
+        {
+            "word": "leejupsu",
+            "result": "\uc2b9\ub9ac",
+            "time": "2025-09-20 22:20:50"
+        }
+    ]
+}
