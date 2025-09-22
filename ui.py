@@ -14,7 +14,7 @@ class UI:
     def display_game_mode_menu(self):
         print("\n[🎮 게임 플레이 모드]")
         print("1. 난이도별 게임 (글자 수 기준)")
-        print("2. 주제별 단어장")
+        print("2. 주제별 게임 (글자 수 기준)")
         print("3. 힌트 모드 (일부 글자 채우고 시작)")
         print("4. 챌린지 모드 (시간 제한)")
         print("5. 메인 메뉴로 돌아가기")

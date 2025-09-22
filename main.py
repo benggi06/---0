@@ -6,10 +6,6 @@ from ui import UI
 from game_data import GameData
 
 def main():
-    """
-    게임의 메인 루프를 실행합니다.
-    사용자 메뉴를 표시하고 선택에 따라 해당 기능을 실행합니다.
-    """
     if not os.path.exists('word_lists'):
         os.makedirs('word_lists')
     if not os.path.exists('data'):
@@ -29,7 +25,7 @@ def main():
         choice = input(">> 메뉴를 선택하세요: ")
 
         if choice == '1':
-            game_mode_menu(word_manager, game_data, settings, ui) # ui 전달
+            game_mode_menu(word_manager, game_data, settings, ui)
         elif choice == '2':
             learning_menu(word_manager)
         elif choice == '3':
@@ -41,8 +37,7 @@ def main():
             print("\n⚠️ 잘못된 입력입니다. 1에서 4 사이의 숫자를 입력해주세요.")
 
 
-def game_mode_menu(word_manager, game_data, settings, ui): # ui 파라미터 추가
-    """게임 플레이 모드 메뉴를 처리합니다."""
+def game_mode_menu(word_manager, game_data, settings, ui):
     while True:
         ui.display_game_mode_menu()
         choice = input(">> 게임 모드를 선택하세요: ")
@@ -57,7 +52,7 @@ def game_mode_menu(word_manager, game_data, settings, ui): # ui 파라미터 추
             topic_choice = input(">> 주제를 선택하세요: ")
             game.start_game_by_topic(topic_choice)
         elif choice == '3':
-            game.start_hint_mode(ui) # [수정] ui 객체를 인자로 전달
+            game.start_hint_mode(ui)
         elif choice == '4':
             game.start_challenge_mode()
         elif choice == '5':
@@ -66,7 +61,6 @@ def game_mode_menu(word_manager, game_data, settings, ui): # ui 파라미터 추
             print("\n⚠️ 잘못된 입력입니다. 다시 선택해주세요.")
 
 def learning_menu(word_manager):
-    """학습 효과 증진 메뉴를 처리합니다."""
     ui = UI()
     while True:
         ui.display_learning_menu()
@@ -82,7 +76,6 @@ def learning_menu(word_manager):
             print("\n⚠️ 잘못된 입력입니다. 다시 선택해주세요.")
 
 def management_menu(word_manager, game_data, settings):
-    """게임 관리 및 설정 메뉴를 처리합니다."""
     ui = UI()
     while True:
         ui.display_management_menu()
@@ -101,7 +94,6 @@ def management_menu(word_manager, game_data, settings):
             print("\n⚠️ 잘못된 입력입니다. 다시 선택해주세요.")
 
 def configure_settings(settings):
-    """게임 세부 규칙을 설정합니다."""
     print("\n[⚙️ 게임 설정]")
     try:
         max_attempts = int(input(f"최대 시도 횟수를 입력하세요 (현재: {settings['max_attempts']}): "))

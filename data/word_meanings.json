@@ -1,242 +1,242 @@
 {
-  "lion": {
-    "meaning": "사자",
-    "example": "The lion is the king of the jungle."
-  },
-  "tiger": {
-    "meaning": "호랑이",
-    "example": "A tiger has black stripes on its body."
-  },
-  "bear": {
-    "meaning": "곰",
-    "example": "The brown bear is looking for honey."
-  },
-  "fox": {
-    "meaning": "여우",
-    "example": "A fox is known for being clever."
-  },
-  "wolf": {
-    "meaning": "늑대",
-    "example": "The wolf howled at the full moon."
-  },
-  "deer": {
-    "meaning": "사슴",
-    "example": "A deer is a gentle animal with antlers."
-  },
-  "horse": {
-    "meaning": "말",
-    "example": "She learned to ride a horse at the farm."
-  },
-  "sheep": {
-    "meaning": "양",
-    "example": "Wool comes from sheep."
-  },
-  "goat": {
-    "meaning": "염소",
-    "example": "A mountain goat can climb very well."
-  },
-  "pig": {
-    "meaning": "돼지",
-    "example": "The little pig rolled in the mud."
-  },
-  "cat": {
-    "meaning": "고양이",
-    "example": "My cat loves to sleep on the sofa."
-  },
-  "dog": {
-    "meaning": "개",
-    "example": "A dog is a loyal companion."
-  },
-  "bird": {
-    "meaning": "새",
-    "example": "A small bird is singing on the branch."
-  },
-  "fish": {
-    "meaning": "물고기",
-    "example": "There are many colorful fish in the sea."
-  },
-  "frog": {
-    "meaning": "개구리",
-    "example": "A green frog jumped into the pond."
-  },
-  "snake": {
-    "meaning": "뱀",
-    "example": "The snake is slithering through the grass."
-  },
-  "duck": {
-    "meaning": "오리",
-    "example": "A duck is swimming in the lake."
-  },
-  "rabbit": {
-    "meaning": "토끼",
-    "example": "The rabbit is eating a carrot."
-  },
-  "mouse": {
-    "meaning": "쥐",
-    "example": "A mouse is a very small animal."
-  },
-  "monkey": {
-    "meaning": "원숭이",
-    "example": "The monkey is swinging from a tree."
-  },
-  "pizza": {
-    "meaning": "피자",
-    "example": "Let's order a pizza for dinner."
-  },
-  "pasta": {
-    "meaning": "파스타",
-    "example": "My favorite Italian food is pasta."
-  },
-  "salad": {
-    "meaning": "샐러드",
-    "example": "Eating a fresh salad is very healthy."
-  },
-  "steak": {
-    "meaning": "스테이크",
-    "example": "How would you like your steak cooked?"
-  },
-  "sushi": {
-    "meaning": "초밥",
-    "example": "Sushi is a famous Japanese dish."
-  },
-  "ramen": {
-    "meaning": "라면",
-    "example": "I want to eat hot ramen on a cold day."
-  },
-  "curry": {
-    "meaning": "카레",
-    "example": "Indian curry has a rich and spicy flavor."
-  },
-  "bread": {
-    "meaning": "빵",
-    "example": "I have toast and coffee for breakfast."
-  },
-  "cheese": {
-    "meaning": "치즈",
-    "example": "Mice are often said to love cheese."
-  },
-  "apple": {
-    "meaning": "사과",
-    "example": "An apple a day keeps the doctor away."
-  },
-  "banana": {
-    "meaning": "바나나",
-    "example": "Monkeys love to eat bananas."
-  },
-  "orange": {
-    "meaning": "오렌지",
-    "example": "Orange juice is a good source of vitamin C."
-  },
-  "grape": {
-    "meaning": "포도",
-    "example": "Wine is made from grapes."
-  },
-  "strawberry": {
-    "meaning": "딸기",
-    "example": "Strawberry cake is my favorite dessert."
-  },
-  "cookie": {
-    "meaning": "쿠키",
-    "example": "I baked some chocolate chip cookies."
-  },
-  "chocolate": {
-    "meaning": "초콜릿",
-    "example": "Do you want a piece of chocolate?"
-  },
-  "sandwich": {
-    "meaning": "샌드위치",
-    "example": "I'm making a turkey sandwich for lunch."
-  },
-  "hamburger": {
-    "meaning": "햄버거",
-    "example": "A hamburger is a popular fast food."
-  },
-  "yogurt": {
-    "meaning": "요거트",
-    "example": "I eat yogurt with fruits in the morning."
-  },
-  "coffee": {
-    "meaning": "커피",
-    "example": "I need a cup of coffee to wake up."
-  },
-  "doctor": {
-    "meaning": "의사",
-    "example": "You should see a doctor if you are sick."
-  },
-  "nurse": {
-    "meaning": "간호사",
-    "example": "The nurse took my temperature."
-  },
-  "teacher": {
-    "meaning": "선생님",
-    "example": "My teacher is very kind and smart."
-  },
-  "police": {
-    "meaning": "경찰관",
-    "example": "A police officer helps keep our city safe."
-  },
-  "firefighter": {
-    "meaning": "소방관",
-    "example": "The firefighter bravely rescued the cat."
-  },
-  "developer": {
-    "meaning": "개발자",
-    "example": "A software developer writes computer code."
-  },
-  "designer": {
-    "meaning": "디자이너",
-    "example": "A fashion designer creates new clothes."
-  },
-  "engineer": {
-    "meaning": "엔지니어",
-    "example": "An engineer is designing a new bridge."
-  },
-  "scientist": {
-    "meaning": "과학자",
-    "example": "The scientist is doing an experiment in the lab."
-  },
-  "artist": {
-    "meaning": "예술가",
-    "example": "The artist is painting a beautiful landscape."
-  },
-  "musician": {
-    "meaning": "음악가",
-    "example": "A musician can play many instruments."
-  },
-  "actor": {
-    "meaning": "배우",
-    "example": "That actor is famous for his movie roles."
-  },
-  "writer": {
-    "meaning": "작가",
-    "example": "The writer published a new fantasy novel."
-  },
-  "chef": {
-    "meaning": "요리사",
-    "example": "The chef is preparing a delicious meal."
-  },
-  "lawyer": {
-    "meaning": "변호사",
-    "example": "A lawyer represents clients in court."
-  },
-  "judge": {
-    "meaning": "판사",
-    "example": "The judge made the final decision."
-  },
-  "pilot": {
-    "meaning": "조종사",
-    "example": "The pilot is flying the airplane."
-  },
-  "dentist": {
-    "meaning": "치과의사",
-    "example": "I have an appointment with the dentist."
-  },
-  "manager": {
-    "meaning": "관리자",
-    "example": "The manager is in charge of the team."
-  },
-  "architect": {
-    "meaning": "건축가",
-    "example": "An architect designs buildings."
-  }
+    "lion": {
+        "meaning": "사자",
+        "example": "The lion is the king of the jungle."
+    },
+    "tiger": {
+        "meaning": "호랑이",
+        "example": "A tiger has black stripes on its body."
+    },
+    "bear": {
+        "meaning": "곰",
+        "example": "The brown bear is looking for honey."
+    },
+    "fox": {
+        "meaning": "여우",
+        "example": "A fox is known for being clever."
+    },
+    "wolf": {
+        "meaning": "늑대",
+        "example": "The wolf howled at the full moon."
+    },
+    "deer": {
+        "meaning": "사슴",
+        "example": "A deer is a gentle animal with antlers."
+    },
+    "horse": {
+        "meaning": "말",
+        "example": "She learned to ride a horse at the farm."
+    },
+    "sheep": {
+        "meaning": "양",
+        "example": "Wool comes from sheep."
+    },
+    "goat": {
+        "meaning": "염소",
+        "example": "A mountain goat can climb very well."
+    },
+    "pig": {
+        "meaning": "돼지",
+        "example": "The little pig rolled in the mud."
+    },
+    "cat": {
+        "meaning": "고양이",
+        "example": "My cat loves to sleep on the sofa."
+    },
+    "dog": {
+        "meaning": "개",
+        "example": "A dog is a loyal companion."
+    },
+    "bird": {
+        "meaning": "새",
+        "example": "A small bird is singing on the branch."
+    },
+    "fish": {
+        "meaning": "물고기",
+        "example": "There are many colorful fish in the sea."
+    },
+    "frog": {
+        "meaning": "개구리",
+        "example": "A green frog jumped into the pond."
+    },
+    "snake": {
+        "meaning": "뱀",
+        "example": "The snake is slithering through the grass."
+    },
+    "duck": {
+        "meaning": "오리",
+        "example": "A duck is swimming in the lake."
+    },
+    "rabbit": {
+        "meaning": "토끼",
+        "example": "The rabbit is eating a carrot."
+    },
+    "mouse": {
+        "meaning": "쥐",
+        "example": "A mouse is a very small animal."
+    },
+    "monkey": {
+        "meaning": "원숭이",
+        "example": "The monkey is swinging from a tree."
+    },
+    "pizza": {
+        "meaning": "피자",
+        "example": "Let's order a pizza for dinner."
+    },
+    "pasta": {
+        "meaning": "파스타",
+        "example": "My favorite Italian food is pasta."
+    },
+    "salad": {
+        "meaning": "샐러드",
+        "example": "Eating a fresh salad is very healthy."
+    },
+    "steak": {
+        "meaning": "스테이크",
+        "example": "How would you like your steak cooked?"
+    },
+    "sushi": {
+        "meaning": "초밥",
+        "example": "Sushi is a famous Japanese dish."
+    },
+    "ramen": {
+        "meaning": "라면",
+        "example": "I want to eat hot ramen on a cold day."
+    },
+    "curry": {
+        "meaning": "카레",
+        "example": "Indian curry has a rich and spicy flavor."
+    },
+    "bread": {
+        "meaning": "빵",
+        "example": "I have toast and coffee for breakfast."
+    },
+    "cheese": {
+        "meaning": "치즈",
+        "example": "Mice are often said to love cheese."
+    },
+    "apple": {
+        "meaning": "사과",
+        "example": "An apple a day keeps the doctor away."
+    },
+    "banana": {
+        "meaning": "바나나",
+        "example": "Monkeys love to eat bananas."
+    },
+    "orange": {
+        "meaning": "오렌지",
+        "example": "Orange juice is a good source of vitamin C."
+    },
+    "grape": {
+        "meaning": "포도",
+        "example": "Wine is made from grapes."
+    },
+    "strawberry": {
+        "meaning": "딸기",
+        "example": "Strawberry cake is my favorite dessert."
+    },
+    "cookie": {
+        "meaning": "쿠키",
+        "example": "I baked some chocolate chip cookies."
+    },
+    "chocolate": {
+        "meaning": "초콜릿",
+        "example": "Do you want a piece of chocolate?"
+    },
+    "sandwich": {
+        "meaning": "샌드위치",
+        "example": "I'm making a turkey sandwich for lunch."
+    },
+    "hamburger": {
+        "meaning": "햄버거",
+        "example": "A hamburger is a popular fast food."
+    },
+    "yogurt": {
+        "meaning": "요거트",
+        "example": "I eat yogurt with fruits in the morning."
+    },
+    "coffee": {
+        "meaning": "커피",
+        "example": "I need a cup of coffee to wake up."
+    },
+    "doctor": {
+        "meaning": "의사",
+        "example": "You should see a doctor if you are sick."
+    },
+    "nurse": {
+        "meaning": "간호사",
+        "example": "The nurse took my temperature."
+    },
+    "teacher": {
+        "meaning": "선생님",
+        "example": "My teacher is very kind and smart."
+    },
+    "police": {
+        "meaning": "경찰관",
+        "example": "A police officer helps keep our city safe."
+    },
+    "firefighter": {
+        "meaning": "소방관",
+        "example": "The firefighter bravely rescued the cat."
+    },
+    "developer": {
+        "meaning": "개발자",
+        "example": "A software developer writes computer code."
+    },
+    "designer": {
+        "meaning": "디자이너",
+        "example": "A fashion designer creates new clothes."
+    },
+    "engineer": {
+        "meaning": "엔지니어",
+        "example": "An engineer is designing a new bridge."
+    },
+    "scientist": {
+        "meaning": "과학자",
+        "example": "The scientist is doing an experiment in the lab."
+    },
+    "artist": {
+        "meaning": "예술가",
+        "example": "The artist is painting a beautiful landscape."
+    },
+    "musician": {
+        "meaning": "음악가",
+        "example": "A musician can play many instruments."
+    },
+    "actor": {
+        "meaning": "배우",
+        "example": "That actor is famous for his movie roles."
+    },
+    "writer": {
+        "meaning": "작가",
+        "example": "The writer published a new fantasy novel."
+    },
+    "chef": {
+        "meaning": "요리사",
+        "example": "The chef is preparing a delicious meal."
+    },
+    "lawyer": {
+        "meaning": "변호사",
+        "example": "A lawyer represents clients in court."
+    },
+    "judge": {
+        "meaning": "판사",
+        "example": "The judge made the final decision."
+    },
+    "pilot": {
+        "meaning": "조종사",
+        "example": "The pilot is flying the airplane."
+    },
+    "dentist": {
+        "meaning": "치과의사",
+        "example": "I have an appointment with the dentist."
+    },
+    "manager": {
+        "meaning": "관리자",
+        "example": "The manager is in charge of the team."
+    },
+    "architect": {
+        "meaning": "건축가",
+        "example": "An architect designs buildings."
+    }
 }

@@ -113,7 +113,6 @@ class Game:
 
 
     def start_hint_mode(self, ui):
-        """[수정] 힌트 모드 시작 전 주제를 선택받습니다."""
         topics = self.word_manager.get_available_topics()
         if not topics:
             print("\n⚠️ 플레이할 단어가 없습니다. 단어를 먼저 추가해주세요.")
@@ -168,7 +167,23 @@ class Game:
         while '_' in display_word and self.attempts_left > 0:
             print(f"\n현재 단어: {' '.join(display_word)}")
             print(f"남은 시도: {self.attempts_left} | 추측한 알파벳: {', '.join(sorted(self.guessed_letters))}")
-            guess = input(">> 알파벳을 추측하세요: ").lower()
+            # [수정] 입력 안내 문구 변경
+            guess = input(">> 알파벳을 추측하거나 '힌트'를 입력하세요: ").lower()
+
+            # [수정] '힌트' 입력 처리 로직 추가
+            if guess == '힌트':
+                if self.hint_count > 0:
+                    self.hint_count -= 1
+                    unrevealed_letters = [i for i, char in enumerate(self.target_word) if display_word[i] == '_']
+                    if unrevealed_letters:
+                        hint_index = random.choice(unrevealed_letters)
+                        display_word[hint_index] = self.target_word[hint_index]
+                        print(f"💡 힌트! 정답에 '{self.target_word[hint_index]}'가 포함되어 있습니다.")
+                    else:
+                        print("모든 글자를 이미 찾았습니다!")
+                else:
+                    print("⚠️ 더 이상 힌트를 사용할 수 없습니다.")
+                continue
 
             if len(guess) != 1 or not guess.isalpha():
                 print("⚠️ 알파벳 한 글자만 입력해주세요.")

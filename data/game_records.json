@@ -1,8 +1,73 @@
 {
-    "total_games": 12,
-    "wins": 8,
+    "total_games": 25,
+    "wins": 15,
     "best_time": 3.94,
     "history": [
+        {
+            "word": "monkey",
+            "result": "패배",
+            "time": "2025-09-22 23:02:40"
+        },
+        {
+            "word": "frog",
+            "result": "승리",
+            "time": "2025-09-22 22:51:25"
+        },
+        {
+            "word": "firefighter",
+            "result": "승리",
+            "time": "2025-09-22 22:50:40"
+        },
+        {
+            "word": "developer",
+            "result": "승리",
+            "time": "2025-09-22 22:47:25"
+        },
+        {
+            "word": "nurse",
+            "result": "패배",
+            "time": "2025-09-22 22:46:24"
+        },
+        {
+            "word": "judge",
+            "result": "승리",
+            "time": "2025-09-22 22:45:58"
+        },
+        {
+            "word": "duck",
+            "result": "승리",
+            "time": "2025-09-22 19:17:22"
+        },
+        {
+            "word": "wolf",
+            "result": "승리",
+            "time": "2025-09-21 14:32:13"
+        },
+        {
+            "word": "engineer",
+            "result": "패배",
+            "time": "2025-09-21 14:32:01"
+        },
+        {
+            "word": "nurse",
+            "result": "승리",
+            "time": "2025-09-21 14:31:28"
+        },
+        {
+            "word": "judge",
+            "result": "패배",
+            "time": "2025-09-21 14:31:14"
+        },
+        {
+            "word": "dog",
+            "result": "패배",
+            "time": "2025-09-21 14:30:46"
+        },
+        {
+            "word": "curry",
+            "result": "패배",
+            "time": "2025-09-21 14:27:17"
+        },
         {
             "word": "teacher",
             "result": "패배",
@@ -37,31 +102,6 @@
             "word": "tiger",
             "result": "승리",
             "time": "2025-09-21 00:01:53"
-        },
-        {
-            "word": "goat",
-            "result": "패배",
-            "time": "2025-09-21 00:01:23"
-        },
-        {
-            "word": "apple",
-            "result": "패배",
-            "time": "2025-09-20 23:58:17"
-        },
-        {
-            "word": "pig",
-            "result": "패배",
-            "time": "2025-09-20 23:58:08"
-        },
-        {
-            "word": "deer",
-            "result": "승리",
-            "time": "2025-09-20 23:57:57"
-        },
-        {
-            "word": "deer",
-            "result": "승리",
-            "time": "2025-09-20 23:57:47"
         }
     ]
 }
